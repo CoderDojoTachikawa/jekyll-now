@@ -5,7 +5,10 @@
       class="header row"
       v-if="!smallSize"
     >
-      <router-link class="router-link col s4 valign-wrapper" to="/">
+      <router-link
+        class="router-link col s4 valign-wrapper"
+        to="/"
+      >
         <img
           class="circle left square-icon"
           alt="corder dojo tachikawa"
@@ -16,27 +19,42 @@
       <div class="col s8 flex justify-end">
         <ul class="col valign-wrapper">
           <li>
-            <router-link class="router-link" to="/staffs">
+            <router-link
+              class="router-link"
+              to="/staffs"
+            >
               スタッフ紹介
             </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/members">
+            <router-link
+              class="router-link"
+              to="/members"
+            >
               メンバー募集
             </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/events">
+            <router-link
+              class="router-link"
+              to="/events"
+            >
               開催の様子
             </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/support">
+            <router-link
+              class="router-link"
+              to="/support"
+            >
               ご支援のお願い
             </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/contact">
+            <router-link
+              class="router-link"
+              to="/contact"
+            >
               お問い合わせ
             </router-link>
           </li>
@@ -60,24 +78,22 @@
       class="header row"
       v-if="smallSize"
     >
-      <div class="col s4 valign-wrapper">
-        <a
-          href="#"
-          data-target="mobile-demo"
-          class="sidenav-trigger"
-        ><i class="material-icons">menu</i></a>
+      <router-link
+        class="router-link col s4 valign-wrapper"
+        to="/"
+      >
         <img
           class="circle left square-icon"
           alt="corder dojo tachikawa"
           src="../assets/dojo-logo.jpg"
         />
         <h1 class='title'>Corder Dojo 立川</h1>
-      </div>
+      </router-link>
       <div class="col s8">
         <!--ハンバーガーメニューのボタン-->
         <div
           class="hamburger_btn"
-          v-on:click='ActiveBtn=!ActiveBtn'
+          v-on:click='handleMenu()'
         >
           <span
             class="line line_01"
@@ -97,35 +113,54 @@
           <div
             class="menu"
             v-show="ActiveBtn"
+            v-on:click='handleMenu()'
           >
             <ul id="test">
               <li>
-                <router-link class="router-link" to="/staffs">
+                <router-link
+                  class="router-link"
+                  to="/staffs"
+                >
                   スタッフ紹介
                 </router-link>
               </li>
               <li>
-                <router-link class="router-link" to="/members">
+                <router-link
+                  class="router-link"
+                  to="/members"
+                >
                   メンバー募集
                 </router-link>
               </li>
               <li>
-                <router-link class="router-link" to="/events">
+                <router-link
+                  class="router-link"
+                  to="/events"
+                >
                   開催の様子
                 </router-link>
               </li>
               <li>
-                <router-link class="router-link" to="/support">
+                <router-link
+                  class="router-link"
+                  to="/support"
+                >
                   ご支援のお願い
                 </router-link>
               </li>
               <li>
-                <router-link class="router-link" to="/contact">
+                <router-link
+                  class="router-link"
+                  to="/contact"
+                >
                   お問い合わせ
                 </router-link>
               </li>
               <li>
-                <a href="https://lin.ee/vhWQhPP" style="margin-left: -30px;">
+                <a
+                  href="https://lin.ee/vhWQhPP"
+                  style="margin-left: -30px;"
+                >
                   <img
                     class="line-img"
                     src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png"
@@ -161,7 +196,11 @@ export default {
       } else {
         this.smallSize = false;
       }
-    }
+    },
+    handleMenu: function () {
+      console.log("clicked");
+      this.ActiveBtn = !this.ActiveBtn;
+    },
   },
   created() {
     window.addEventListener("resize", this.handleResize);
